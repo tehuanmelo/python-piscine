@@ -1,13 +1,9 @@
 from datetime import datetime as dt
 
-def main():
-    today = dt.now()
-    epoch = dt(1970, 1, 1)
+today = dt.now()
+epoch = dt(1970, 1, 1)
 
-    seconds_from_epoch = (today - epoch).total_seconds()
+seconds_from_epoch = (today - epoch).total_seconds()
 
-    print(f"Seconds since January 1, 1970: {seconds_from_epoch:,.4f} or {seconds_from_epoch:.2e} in scientific notation")
-    print(today.strftime('%b %d %Y'))
-
-if __name__ == "__main__":
-    main()
+print(f"Seconds since January 1, 1970: {seconds_from_epoch:,.4f} or {seconds_from_epoch:.2e} in scientific notation")
+print(today.strftime('%b %d %Y'))
