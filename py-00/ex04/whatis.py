@@ -1,4 +1,4 @@
-import sys as s 
+import sys as s
 
 if len(s.argv) == 1:
     pass
@@ -11,6 +11,6 @@ elif len(s.argv) == 2:
         else:
             print("I'm Odd.")
     except ValueError:
-        print("AssertionError: argument is not an integer")     
+        print("AssertionError: argument is not an integer")
 else:
     print("AssertionError: more than one argument is provided")
