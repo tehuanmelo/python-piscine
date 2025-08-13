@@ -189,3 +189,5 @@ Temporary Items
 
 # Project specific
 # Add any project-specific files or directories you want to ignore here
+.local/
+.cache/
