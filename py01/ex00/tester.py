@@ -1,0 +1,50 @@
+from give_bmi import check_lists_type, check_lists_length
+from rich import print
+
+def run_tests():
+    
+    try:
+        print()
+        print("=== Testing types")
+        print()
+        print("=== Testing only integers")
+        print("=== [1,2,3], [1,2,3]")
+        print(check_lists_type([1,2,3], [1,2,3]))
+        print("=== Testing only floats")
+        print("=== [1.1, 2.2, 3.3], [1.1, 2.2, 3.3]")
+        print(check_lists_type([1.1, 2.2, 3.3], [1.1, 2.2, 3.3]))
+        print("=== Testing integers and floats")
+        print("=== [1, 2.2, 3], [1, 2.2, 3]")
+        print(check_lists_type([1, 2.2, 3], [1, 2.2, 3]))
+        print("=== Testing other types")
+        print(f"=== ['a', 2.2, 3], [1, 2.2, 3]")
+        print(check_lists_type(["a", 2.2, 3], [1, 2.2, 3]))
+        print("=== Testing other types")
+        print(f"=== [1, 2.2, 3], ['a', 2.2, 3]")
+        print(check_lists_type([1, 2.2, 3], ['a', 2.2, 3]))
+        print("=== Testing other types")
+        print(f"=== [None, 2.2, 3], [1, 2.2, 3]")
+        print(check_lists_type([None, 2.2, 3], [1, 2.2, 3]))
+        print("=== Testing other types")
+        print(f"=== [None, 2.2, 3], [None, 2.2, 3]")
+        print(check_lists_type([None, 2.2, 3], [None, 2.2, 3]))
+        print()
+        print("== Testing Lengths")
+        print()
+        print("== Same length")
+        print("== [1,2,3],[1,2,3]")
+        print(check_lists_length([1,2,3],[1,2,3]))
+        print("== Same length")
+        print("== [],[]")
+        print(check_lists_length([],[]))
+        print("== Different lengths")
+        print("== [1,2],[1,2,3]")
+        print(check_lists_length([1,2],[1,2,3]))
+        print("== Different lengths")
+        print("== [1,2],[1]")
+        print(check_lists_length([1,2],[1]))
+    except Exception as e:
+        print(f"Failed: {e}")
+    
+if __name__ == "__main__":
+    run_tests()
