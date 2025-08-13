@@ -6,10 +6,10 @@ ft_dict = {"Hello": "titi!"}
 # your code here
 
 ft_list[1] = "World!"
-ft_tuple = ("Hello", "France!")
+ft_tuple = ("Hello", "UAE!")
 ft_set.remove("tutu!")
-ft_set.add("Paris!")
-ft_dict["Hello"] = "42Paris!"
+ft_set.add("Abu Dhabi!")
+ft_dict["Hello"] = "42AbuDhabi!"
 
 print(ft_list)
 print(ft_tuple)

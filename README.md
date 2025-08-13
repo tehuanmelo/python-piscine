@@ -7,7 +7,7 @@ Each exercise includes its own tester (when applicable) and a README.md file exp
 
 ## Structure
 
-The Piscine is divided into 5 Projects:
+The Piscine is divided into 5 Modules:
 
 ### [Python 00](./py00)
 
