@@ -9,9 +9,6 @@ RUN useradd -m -s /bin/bash tehuan && \
     echo "tehuan:1234" | chpasswd && \
     usermod -aG sudo tehuan
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
 RUN chown -R tehuan:tehuan /home/tehuan
 
 USER tehuan

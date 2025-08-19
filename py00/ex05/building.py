@@ -1,17 +1,17 @@
 import sys
 
 
-def building(user_input: str):
+def parse(user_input: str) -> tuple:
     """
-    Analyzes a given text and counts character types.
-    Prints:
-    - Total number of characters
-    - Number of uppercase letters
-    - Number of lowercase letters
-    - Number of punctuation marks
-    - Number of spaces
-    - Number of digits
-    """
+    Parses the text and counts:
+   - Total number of characters
+   - Uppercase letters
+   - Lowercase letters
+   - Punctuation marks
+   - Spaces
+   - Digits
+   """
+    characters = len(user_input)
     uppers = 0
     lowers = 0
     punctuations = 0
@@ -28,35 +28,50 @@ def building(user_input: str):
             digits += 1
         else:
             punctuations += 1
+    return characters, uppers, lowers, punctuations, spaces, digits
 
-    print(f"The text contains {len(user_input)} characters:")
-    print(f"{uppers} upper letters")
-    print(f"{lowers} lower letters")
-    print(f"{punctuations} punctuation marks")
-    print(f"{spaces} spaces")
-    print(f"{digits} digits")
+
+def building(data: tuple) -> str:
+    """
+    Builds the string with all the statistics in a clear format.
+    """
+    characters, uppers, lowers, punctuations, spaces, digits = data
+    result = f"The text contains {characters} characters:\n"
+    result += f"{uppers} upper letters\n"
+    result += f"{lowers} lower letters\n"
+    result += f"{punctuations} punctuation marks\n"
+    result += f"{spaces} spaces\n"
+    result += f"{digits} digits"
+    return result
 
 
 def main():
     """
     Entry point of the program. Handles input and error checking.
     Calls the building() function to analyze the text.
+    Prints the output
     """
     try:
+        assert len(sys.argv) <= 2, "more than one argument is provided"
         user_input = ""
         if len(sys.argv) < 2:
             print('What is the text to count?')
-            user_input = sys.stdin.read()
-        elif len(sys.argv) > 2:
-            print('AssertionError: more than one argument is provided')
-            return
+            user_input = sys.stdin.readline()
+            if user_input == "":
+                raise EOFError
         else:
             user_input = sys.argv[1]
+        print(building(parse(user_input)))
 
-        building(user_input)
-
-    except Exception as e:
+    except AssertionError as e:
         print(f"AssertionError: {e}")
+        exit(1)
+    except KeyboardInterrupt:
+        print("\n^C pressed. Exiting gracefully.")
+        exit(1)
+    except EOFError:
+        print("\nNo input received (EOF). Exiting.")
+        exit(1)
 
 
 if __name__ == "__main__":
